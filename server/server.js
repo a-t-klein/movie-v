@@ -1,8 +1,23 @@
-// const url = 'https://api.themoviedb.org/3/movie/550?api_key=d30cdb2785a1ea876821bed6940d05a7;'
-import * as dotenv from 'dotenv'
-const url = `https://api.themoviedb.org/3/movie/550?api_key=${dotenv.apiKey}`
+const express = require('express')
+const app = express();
+const port = 8080;
 
-  fetch(url)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
+require('dotenv').config();
+
+app.use('/cool', (req, res) => {
+  res.status(200).send({test})
+})
+
+
+
+// const fetchMovieData = (movieName) => {
+//   const testurl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`;
+  
+//   fetch(testurl)
+//   .then(response => response.json())
+//   .then(response => console.log(response))
+//   .catch(err => console.error(err));
+// }
+
+
+app.listen(port, () => console.log(`listening on port: ${port}`))

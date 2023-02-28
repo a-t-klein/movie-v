@@ -24,6 +24,9 @@ module.exports = {
   plugins: [
     new HTMLwebPackPlugin({
       template: './src/index.html'
+    }),
+    new HTMLwebPackPlugin({
+      template: './server/server.js'
     })
   ]
 }
