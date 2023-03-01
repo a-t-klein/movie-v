@@ -1,23 +1,20 @@
 const express = require('express')
+const path = require('path');
+require('dotenv').config();
+
 const app = express();
 const port = 8080;
 
-require('dotenv').config();
+// app.use(express.json());
 
-app.use('/cool', (req, res) => {
-  res.status(200).send({test})
+
+app.get('/cool', (req, res) => {
+  res.status(200).send('this is working')
 })
 
 
-
-// const fetchMovieData = (movieName) => {
-//   const testurl = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`;
+app.use('*', (req, res) => {
+  res.status(404).send('cannot find page!')
+});
+module.exports = app.listen(port, () => console.log(`listening on port: ${port}`))
   
-//   fetch(testurl)
-//   .then(response => response.json())
-//   .then(response => console.log(response))
-//   .catch(err => console.error(err));
-// }
-
-
-app.listen(port, () => console.log(`listening on port: ${port}`))

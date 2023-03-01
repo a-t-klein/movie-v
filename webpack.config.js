@@ -2,10 +2,11 @@ const path = require('path');
 const HTMLwebPackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  mode: process.env.NODE_ENV,
+  entry: './client/index.js',
   output: {
-    path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
+    path: path.join(__dirname, '/build'),
   },
   module: {
     rules: [
@@ -15,18 +16,31 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ['@babel/env', '@babel/react']
           }
         }
+      },
+      {
+        test: /\.s?css$/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       }
     ]
   },
   plugins: [
     new HTMLwebPackPlugin({
+      title: 'Development',
       template: './src/index.html'
-    }),
-    new HTMLwebPackPlugin({
-      template: './server/server.js'
     })
-  ]
+  ],
+  devServer: {
+    static: {
+      publicPath: '/build',
+      directory: path.resolve(__dirname, 'build')
+    },
+    port:3000,
+    proxy: {
+      '/': 'http://localhost:8080'
+    }
+  }
 }
