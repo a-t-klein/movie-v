@@ -4,7 +4,7 @@ import FindMoviesContainer from "../containers/FindMovies";
 const App = () => {
   return (
     <div>
-      <h1>moviez</h1>
+      <p>movie-z</p>
       <FindMoviesContainer />
     </div>
   )

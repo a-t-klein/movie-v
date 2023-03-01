@@ -6,9 +6,9 @@ const uri = `mongodb+srv://savedMovies:${process.env.MONGO_PASSWORD}@savedmovies
 const Schema = mongoose.Schema;
 
 const favoriteSchema = new Schema ({
-  // _id: Number,
+  _id: Number,
   title: String,
-  date: Number,
+  date: String,
   overview: String,
   score: Number
 });

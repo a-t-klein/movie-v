@@ -1,8 +1,6 @@
 import React, {Component, useState} from "react";
 
-const Search = ({fetchMovieData, onInput, searchVal}) => {
-  console.log('sarchVal', searchVal);
-  
+const Search = ({fetchMovieData, onInput, searchVal}) => {  
   return (
     <div>
       <input type="text" name="name" onChange={onInput} placeholder ='filmName'/>

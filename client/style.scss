@@ -1,16 +1,22 @@
-
+body{
+  font-family: 'Courier New', Courier, monospace;
+}
 
 #resultsContainer{
+  max-height: 50vh;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) );
   gap: 10px;
-  min-height: 10vh;
-  max-height: 10vh;
+  padding: 10px 0px;
+  overflow: scroll;
+  background-color: aliceblue;
+  
 }
 
 #resultsStyles{
   background: #7FFFD4;
   font-family: 'Courier New', Courier, monospace;
   padding: 5px;
+  margin-bottom: 5px;
   
 }

@@ -5,8 +5,6 @@ const port = 8080;
 const favoriteController = require('./FavoritesController')
 require('dotenv').config();
 
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,6 +13,15 @@ app.post('/favorite', favoriteController.addFavorite, (req, res) => {
 });
 
 app.get('/favorite',favoriteController.getFavorite, (req, res) => {
+  res.status(200).send(res.locals.favorite)
+});
+
+app.delete('/favorite/:id',favoriteController.deleteFavorite, (req, res) => {
+  res.status(200).send(res.locals.favorite)
+});
+
+
+app.delete('/allfavorite',favoriteController.deleteAllFavorite, (req, res) => {
   res.status(200).send(res.locals.favorite)
 });
 

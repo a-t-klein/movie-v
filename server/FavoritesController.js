@@ -3,7 +3,7 @@ const favoriteController = {}
 
 favoriteController.addFavorite = async (req, res, next) => {
   try {
-    console.log('REQBODY', req.body)
+    console.log('IN POST REQBODY', req.body)
     await Favorites.create(req.body);
     console.log('added_char');
     return next();
@@ -18,7 +18,8 @@ favoriteController.addFavorite = async (req, res, next) => {
 
 favoriteController.getFavorite = async (req, res, next) => {
     try {
-      const results = await Favorites.find().exec()
+      const results = await Favorites.find({}).exec()
+      console.log(results);
       res.locals.favorites = results; 
       next();
     } catch (err) {
@@ -29,6 +30,40 @@ favoriteController.getFavorite = async (req, res, next) => {
       });
       
     }
+}
+
+
+favoriteController.deleteAllFavorite = async (req, res, next) => {
+  try {
+    const results = await Favorites.deleteMany({}).exec()
+    console.log(results);
+    res.locals.favorites = results; 
+    next();
+  } catch (err) {
+    return next({
+      log: 'Error in getFavorite!',
+      status: 400,
+      message: {err: `in favoriteController.getFavorite: ${err}`}
+    });
+    
+  }
+}
+
+
+favoriteController.deleteFavorite = async (req, res, next) => {
+  try {
+    const results = await Favorites.find({}).exec()
+    console.log(results);
+    res.locals.favorites = results; 
+    next();
+  } catch (err) {
+    return next({
+      log: 'Error in getFavorite!',
+      status: 400,
+      message: {err: `in favoriteController.getFavorite: ${err}`}
+    });
+    
+  }
 }
 
 module.exports = favoriteController;

@@ -1,18 +1,21 @@
 import React, {Component} from "react";
 import '../style.scss'
+//https://api.themoviedb.org/3/genre/movie/list?api_key=d30cdb2785a1ea876821bed6940d05a7&language=en-US
 
-const MovieResults = ({title, date, overview, score, reviews }) => {
+
+const MovieResults = (props) => {
+
   return (
     <div id="resultsStyles">
-      <div>{title}</div>
-      <div>{date}</div>
-      <div>{overview}</div>
+      <div>{props.title}</div>
+      <div>{props.date}</div>
+      <div>{props.overview}</div>
       <div>
-        <span>reviews: {reviews} </span>
-        <span>score: {score}</span>
+        <span>reviews: {props.reviews} </span>
+        <span>score: {props.score}</span>
       </div>
       <div>
-        <button>save</button>
+        <button onClick={() => props.saveFavorite(props)}>save</button>
       </div>
     </div>
   )
