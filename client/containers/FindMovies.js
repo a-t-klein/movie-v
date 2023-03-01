@@ -35,7 +35,7 @@ const fetchMovieData = (movieName) => {
 
   const returnedMovies = movieData.map(movie => {
     return (
-      <MovieResults  className="resultsStyles"
+      <MovieResults
         key = {movie.id} 
         title = {movie.title}
         date = {movie.release_date}

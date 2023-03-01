@@ -1,9 +1,16 @@
+
+
 #resultsContainer{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) );
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) );
   gap: 10px;
+  min-height: 10vh;
+  max-height: 10vh;
 }
 
-.resultsStyles{
-  background-color: '#7FFFD4';
+#resultsStyles{
+  background: #7FFFD4;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 5px;
+  
 }

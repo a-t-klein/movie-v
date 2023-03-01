@@ -1,12 +1,18 @@
 const express = require('express')
 const path = require('path');
-require('dotenv').config();
-
 const app = express();
 const port = 8080;
+const favoriteController = require('./FavoritesController')
+require('dotenv').config();
 
-// app.use(express.json());
 
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/favorite', (req, res) => {
+  res.status(200).send('addedCharacter!!!!')
+});
 
 app.get('/cool', (req, res) => {
   res.status(200).send('this is working')
