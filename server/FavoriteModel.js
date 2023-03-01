@@ -3,14 +3,17 @@ require('dotenv').config();
 
 const uri = `mongodb+srv://savedMovies:${process.env.MONGO_PASSWORD}@savedmovies.rfm4k7f.mongodb.net/?retryWrites=true&w=majority`;
 
-const favoriteSchema = {
-  _id: String,
+const Schema = mongoose.Schema;
+
+const favoriteSchema = new Schema ({
+  // _id: Number,
   title: String,
   date: Number,
   overview: String,
   score: Number
-}
-const Favorite = mongoose.model('favorite', favoriteSchema);
+});
+
+const Favorites = mongoose.model('favorites', favoriteSchema);
 
 mongoose
   .connect(uri, {
@@ -20,7 +23,7 @@ mongoose
   })
   .then(() => console.log('connected to DB'))
 
-module.exports = Favorite;
+module.exports = {Favorites};
 
 
 

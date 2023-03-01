@@ -10,17 +10,25 @@ require('dotenv').config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/favorite', (req, res) => {
-  res.status(200).send('addedCharacter!!!!')
+app.post('/favorite', favoriteController.addFavorite, (req, res) => {
+  res.status(200).send('yo it worked!')
 });
 
-app.get('/cool', (req, res) => {
-  res.status(200).send('this is working')
-})
+app.get('/favorite',favoriteController.getFavorite, (req, res) => {
+  res.status(200).send(res.locals.favorite)
+});
 
 
-app.use('*', (req, res) => {
-  res.status(404).send('cannot find page!')
+
+app.use((err, req, res, next) => {
+  const defaultErr = {
+    log: 'Express error handler caught unknown middleware error',
+    status: 500,
+    message: { err: 'An error occurred' },
+  };
+  const errorObj = Object.assign({}, defaultErr, err);
+  console.log(errorObj.log);
+  return res.status(errorObj.status).json(errorObj.message);
 });
 module.exports = app.listen(port, () => console.log(`listening on port: ${port}`))
   
