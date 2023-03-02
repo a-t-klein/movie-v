@@ -51,10 +51,11 @@ favoriteController.deleteAllFavorite = async (req, res, next) => {
 
 
 favoriteController.deleteFavorite = async (req, res, next) => {
+  const movieId = req.params.id;
   try {
-    const results = await Favorites.find({}).exec()
-    console.log(results);
+    const results = await Favorites.findByIdAndDelete(movieId).exec()
     res.locals.favorites = results; 
+    console.log('deleted???')
     next();
   } catch (err) {
     return next({

@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 //
 
-const FavoriteMovie = ({title, date, overview, score}) => {
+const FavoriteMovie = ({title, date, overview, score, id, deleteFavorite}) => {
   return(
     <div id="favoritesStyles">
       <div>{title}</div>
@@ -12,7 +12,7 @@ const FavoriteMovie = ({title, date, overview, score}) => {
         <span>score: {score}</span>
       </div>
       <div>
-        <button onClick={()=> console.log('build delete!')}>delete</button>
+        <button onClick={()=> deleteFavorite(id)}>delete</button>
       </div>
     </div>
   )

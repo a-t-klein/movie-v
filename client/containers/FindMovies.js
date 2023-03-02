@@ -26,14 +26,13 @@ const getFavoriteMovies = () => {
   .catch((e) => console.log(e))
 }
 
-console.log('fav movies outside useeffect', favoriteMovies)
-
 //inputs
 const onInput = (e) => {
   setSearchVal(e.target.value)
 }
 
 const fetchMovieData = (movieName) => {
+  if (!movieName) return; 
   // const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`;
   const url = `https://api.themoviedb.org/3/search/movie?api_key=d30cdb2785a1ea876821bed6940d05a7&language=en-US&query=${movieName}&page=1&include_adult=false`;
   fetch(url)
@@ -66,12 +65,29 @@ const saveFavorite = async (props)  => {
       }
     });
     console.log('post complete! responseBody:', response.body);
-  } catch (err) {
-    console.log(`err in MovieResults Post Request: ${err}`);
+    } catch (err) {
+      console.log(`err in MovieResults Post Request: ${err}`);
+    }
+    getFavoriteMovies();
   }
-  
-  getFavoriteMovies();
-}
+
+  const deleteFavorite = async (id) => {
+    try {
+      const response = await fetch(`/favorite/${id}`, 
+      {
+      method: 'delete',
+      body: JSON.stringify({_id: id}),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    });
+      console.log('response.body', response.body)
+    } catch (error) {
+      console.log(`err in MovieResults Delete Request: ${err}`)
+    }
+    const updateData = favoriteMovies.filter(movie => movie._id !== id)
+    setFavoriteMovies(updateData)
+  }
 
   return(
     <>
@@ -83,8 +99,15 @@ const saveFavorite = async (props)  => {
       <div>
         movies related to: {relatedMovies}
       </div>
-      <ReturnedMovies movieData = {movieData} saveFavorite = {saveFavorite} />
-      <FavoriteContainer favoriteMovies= {favoriteMovies} setMovies = {setFavoriteMovies}/>
+      <ReturnedMovies 
+        movieData = {movieData} 
+        saveFavorite = {saveFavorite}
+      />
+      <FavoriteContainer 
+        favoriteMovies= {favoriteMovies} 
+        setMovies = {setFavoriteMovies} 
+        deleteFavorite ={deleteFavorite}
+      />
     </>
   );
 }
