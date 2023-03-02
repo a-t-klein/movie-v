@@ -122,6 +122,8 @@ input{
   right:0;
   align-items: center;
   box-shadow: 0 .6px 3px 0 rgba(0, 0, 0, 0.19);
+  
+
 
 
   #title{
@@ -161,6 +163,14 @@ input{
     to{
       transform: translateX(-5200px);
     }
+  }
+
+  #cover{
+    position: fixed;
+    background-color: rgb(255, 240, 192);
+    height: 100%;
+    z-index: 100;
+
   }
 
 

@@ -37,15 +37,28 @@ const fetchMovieData = (movieName) => {
   const url = `https://api.themoviedb.org/3/search/movie?api_key=d30cdb2785a1ea876821bed6940d05a7&language=en-US&query=${movieName}&page=1&include_adult=false`;
   fetch(url)
   .then(response => response.json())
-  .then(response => {
-    console.log('res:',response)
-    const sortedResults = response.results.sort((a, b) => b.vote_average -  a.vote_average);
+  .then(data => {
+    console.log('res:',data)
+    const sortedResults = data.results.sort((a, b) => b.vote_average -  a.vote_average);
     setMovieData(sortedResults);
     setRelatedMovies(searchVal)
     setSearchVal('');
   })
   .catch(err => console.error(err));
 }
+
+//get provider details
+
+const getProvider = (id) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=d30cdb2785a1ea876821bed6940d05a7`
+  fetch(url)
+  .then(response => response.json())
+  .then (data => console.log(data))
+  .catch(err => console.error(err));
+}
+
+
+
 
 const saveFavorite = async (props)  => {
   console.log('in save favorites',props.poster);

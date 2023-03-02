@@ -22,6 +22,7 @@ const Ticker = () => {
   const popularMovies = popular.map(movie => <li>{movie.title}</li>);
 
   return(
+    <>
     <div id = 'movieTicker'>
       <div id = 'title'>
         today's top movies
@@ -29,8 +30,9 @@ const Ticker = () => {
       <ul>
         {popularMovies}
       </ul>
-
     </div> 
+    </>
+    
   )
 }
 

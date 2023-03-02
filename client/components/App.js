@@ -7,7 +7,6 @@ const App = () => {
     <div>
       <Ticker />
       <div id = 'main'>
-        movie-z
         </div>
       <Askii />
       <FindMoviesContainer />
