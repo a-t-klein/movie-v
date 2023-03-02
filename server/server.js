@@ -19,7 +19,6 @@ app.delete('/favorite/:id',favoriteController.deleteFavorite, (req, res) => {
   res.status(200).send(res.locals.favorites)
 });
 
-
 app.delete('/allfavorite',favoriteController.deleteAllFavorite, (req, res) => {
   res.status(200).send(res.locals.favorite)
 });

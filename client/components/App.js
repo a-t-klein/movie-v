@@ -5,7 +5,7 @@ const App = () => {
   return (
     <div>
       <Ticker />
-      <p>movie-z</p>
+      <p id = 'main'>movie-z</p>
       <FindMoviesContainer />
     </div>
   )
