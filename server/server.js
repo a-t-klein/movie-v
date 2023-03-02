@@ -1,11 +1,14 @@
 const express = require('express')
 const app = express();
 const port = 8080;
+const path = require ('path');
 const favoriteController = require('./FavoritesController')
 require('dotenv').config();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, '../build')));
 
 app.post('/favorite', favoriteController.addFavorite, (req, res) => {
   res.status(200).send('yo it worked!')

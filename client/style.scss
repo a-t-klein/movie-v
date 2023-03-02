@@ -9,10 +9,15 @@ button{
   height: 4vh;
   width: 15vh;
   margin-top: 10px;
-  border-radius: 3px;
   font-family: 'Courier New', Courier, monospace;
   border: none;
 }
+
+button:hover,
+button:focus {
+  box-shadow: 0 .6px 3px 0 rgba(0, 0, 0, 0.19);
+}
+
 
 #resultsContainer{
   max-height: 50vh;
@@ -67,14 +72,11 @@ button{
     margin-right: 20px;
   }
   div{
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 }
 
-#main{
-  width: 75px ;
-  border-bottom: 1px solid rgb(45, 46, 53);
-}
+
 
 #resultContent{
   padding-right: 10px;
@@ -119,7 +121,8 @@ input{
   left:0;
   right:0;
   align-items: center;
-  height: 4vh;
+  box-shadow: 0 .6px 3px 0 rgba(0, 0, 0, 0.19);
+
 
   #title{
     position: absolute;
@@ -162,3 +165,13 @@ input{
 
 
 }
+
+// #main{
+//   width: 500px ;
+//   border-bottom: 1px solid rgb(45, 46, 53);
+// }
+
+// .aksii{
+//   white-space: pre;
+
+// }

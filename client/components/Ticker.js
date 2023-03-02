@@ -24,7 +24,7 @@ const Ticker = () => {
   return(
     <div id = 'movieTicker'>
       <div id = 'title'>
-        Popular Films
+        today's top movies
       </div>
       <ul>
         {popularMovies}
