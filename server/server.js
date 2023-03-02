@@ -1,5 +1,4 @@
 const express = require('express')
-const path = require('path');
 const app = express();
 const port = 8080;
 const favoriteController = require('./FavoritesController')
@@ -13,7 +12,7 @@ app.post('/favorite', favoriteController.addFavorite, (req, res) => {
 });
 
 app.get('/favorite',favoriteController.getFavorite, (req, res) => {
-  res.status(200).send(res.locals.favorite)
+  res.status(200).send(res.locals.favorites)
 });
 
 app.delete('/favorite/:id',favoriteController.deleteFavorite, (req, res) => {
@@ -25,8 +24,6 @@ app.delete('/allfavorite',favoriteController.deleteAllFavorite, (req, res) => {
   res.status(200).send(res.locals.favorite)
 });
 
-
-
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
@@ -37,5 +34,7 @@ app.use((err, req, res, next) => {
   console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
+
+
 module.exports = app.listen(port, () => console.log(`listening on port: ${port}`))
   

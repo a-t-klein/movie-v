@@ -19,7 +19,7 @@ favoriteController.addFavorite = async (req, res, next) => {
 favoriteController.getFavorite = async (req, res, next) => {
     try {
       const results = await Favorites.find({}).exec()
-      console.log(results);
+      console.log('in favoriteController.getFavorite ')
       res.locals.favorites = results; 
       next();
     } catch (err) {

@@ -17,6 +17,42 @@ body{
   background: #7FFFD4;
   font-family: 'Courier New', Courier, monospace;
   padding: 5px;
-  margin-bottom: 5px;
-  
+  margin-bottom: 5px; 
+
+  button{
+    background-color: white;
+    height: 5vh;
+    width: 10vh;
+    margin-top: 10px;
+    border-radius: 3px;
+  }
 }
+
+#favoritesStyles{
+  background: #ae86de;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 5px;
+  margin-bottom: 5px; 
+
+  button{
+    background-color: white;
+    height: 5vh;
+    width: 10vh;
+    margin-top: 10px;
+    border-radius: 3px;
+  }
+}
+
+
+#search{
+  margin-bottom: 10px; 
+}
+
+#search button{
+  background-color: #7FFFD4;
+  height: 20px;
+  margin-left: 10px;
+  border-radius: 3px;
+  border: none
+}
+

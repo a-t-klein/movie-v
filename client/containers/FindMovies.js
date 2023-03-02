@@ -6,24 +6,27 @@ import '../style.scss'
 
 
 const FindMoviesContainer = () => {
-
-//use effects
-  useEffect(() => {
-    
-  }, [favoriteMovies]);
-
-
-
-
-
-
-
   //state
 const [searchVal, setSearchVal] = useState('');
 const [movieData, setMovieData] = useState([]);
 const [relatedMovies, setRelatedMovies] = useState('');
-const [favoriteMovies, setFavoriteMovies ] = useState(['']);
+const [favoriteMovies, setFavoriteMovies ] = useState([]);
 
+
+//use effects
+
+useEffect(() => {
+  getFavoriteMovies()
+}, []);
+
+const getFavoriteMovies = () => {
+  fetch('/favorite')
+  .then(response => response.json())
+  .then(data => setFavoriteMovies(data))
+  .catch((e) => console.log(e))
+}
+
+console.log('fav movies outside useeffect', favoriteMovies)
 
 //inputs
 const onInput = (e) => {
@@ -66,24 +69,9 @@ const saveFavorite = async (props)  => {
   } catch (err) {
     console.log(`err in MovieResults Post Request: ${err}`);
   }
+  
+  getFavoriteMovies();
 }
-
-const getFavorites = async (props)  => {
-  try {
-    const response = await fetch('/favorite', 
-    {
-      method: 'get',
-      body: JSON.stringify(reqBody),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    });
-    console.log('post complete! responseBody:', response.body);
-  } catch (err) {
-    console.log(`err in MovieResults Post Request: ${err}`);
-  }
-}
-
 
   return(
     <>
@@ -93,14 +81,12 @@ const getFavorites = async (props)  => {
         searchVal = {searchVal}
       />
       <div>
-        Movies Related to: {relatedMovies}
+        movies related to: {relatedMovies}
       </div>
       <ReturnedMovies movieData = {movieData} saveFavorite = {saveFavorite} />
-      <FavoriteContainer />
+      <FavoriteContainer favoriteMovies= {favoriteMovies} setMovies = {setFavoriteMovies}/>
     </>
   );
 }
-
-
 
 export default FindMoviesContainer;

@@ -4,7 +4,6 @@ import '../style.scss'
 
 
 const MovieResults = (props) => {
-
   return (
     <div id="resultsStyles">
       <div>{props.title}</div>

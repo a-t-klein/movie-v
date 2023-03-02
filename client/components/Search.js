@@ -1,8 +1,9 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
+import '../style.scss'
 
 const Search = ({fetchMovieData, onInput, searchVal}) => {  
   return (
-    <div>
+    <div id="search">
       <input type="text" name="name" onChange={onInput} placeholder ='filmName'/>
       <button onClick={() => fetchMovieData(searchVal)}>submit</button>
     </div>
