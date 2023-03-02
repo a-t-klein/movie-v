@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import FindMoviesContainer from "../containers/FindMovies";
-
+import Ticker from "./Ticker"
 const App = () => {
   return (
     <div>
+      <Ticker />
       <p>movie-z</p>
       <FindMoviesContainer />
     </div>

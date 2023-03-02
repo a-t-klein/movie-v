@@ -4,6 +4,7 @@ body{
   padding: 4vh
 
 }
+
 button{
   height: 4vh;
   width: 15vh;
@@ -52,11 +53,10 @@ button{
   }
 }
 
-
 #resultsStyles{
   background: #7FFFD4;
   font-family: 'Courier New', Courier, monospace;
-  padding: 5px 5px 5px 5px;
+  padding: 15px;
   margin-bottom: 5px; 
   button{
     background-color: white;
@@ -68,7 +68,7 @@ button{
 #favoritesStyles{
   background: #ae86de;
   font-family: 'Courier New', Courier, monospace;
-  padding: 5px;
+  padding: 15px;
   margin-bottom: 5px; 
   display: flex;
   flex-direction: row;
@@ -79,12 +79,9 @@ button{
   }
 }
 
-
 #search{
   margin-bottom: 10px; 
 }
-
-
 
 #search button{
   background-color: #7FFFD4;

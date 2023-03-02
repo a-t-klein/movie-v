@@ -42,7 +42,6 @@ const fetchMovieData = (movieName) => {
     const sortedResults = response.results.sort((a, b) => b.vote_average -  a.vote_average);
     setMovieData(sortedResults);
     setRelatedMovies(searchVal)
-    console.log(setMovieData)
     setSearchVal('');
   })
   .catch(err => console.error(err));
