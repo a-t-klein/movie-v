@@ -10,7 +10,8 @@ const favoriteSchema = new Schema ({
   title: String,
   date: String,
   overview: String,
-  score: Number
+  score: Number,
+  poster: String,
 });
 
 const Favorites = mongoose.model('favorites', favoriteSchema);

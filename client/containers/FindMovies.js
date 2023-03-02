@@ -32,28 +32,34 @@ const onInput = (e) => {
 }
 
 const fetchMovieData = (movieName) => {
-  if (!movieName) return; 
+  // if (!movieName) return; 
   // const url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`;
   const url = `https://api.themoviedb.org/3/search/movie?api_key=d30cdb2785a1ea876821bed6940d05a7&language=en-US&query=${movieName}&page=1&include_adult=false`;
   fetch(url)
   .then(response => response.json())
   .then(response => {
+    console.log('res:',response)
     const sortedResults = response.results.sort((a, b) => b.vote_average -  a.vote_average);
     setMovieData(sortedResults);
     setRelatedMovies(searchVal)
+    console.log(setMovieData)
     setSearchVal('');
   })
   .catch(err => console.error(err));
 }
 
 const saveFavorite = async (props)  => {
+  console.log('in save favorites',props.poster);
   const reqBody = {
     _id: props.id, 
     title: props.title, 
     date: props.date,
     overview: props.overview,
-    score: props.score
+    score: props.score,
+    poster: props.poster
     };
+
+    console.log(reqBody)
 
   try {
     const response = await fetch('/favorite', 
@@ -96,7 +102,7 @@ const saveFavorite = async (props)  => {
         onInput = {onInput}
         searchVal = {searchVal}
       />
-      <div>
+      <div className="header">
         movies related to: {relatedMovies}
       </div>
       <ReturnedMovies 

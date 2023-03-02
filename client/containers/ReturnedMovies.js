@@ -6,6 +6,7 @@ import '../style.scss'
 const ReturnedMovies = ({movieData, saveFavorite}) => {
 
   const returnedMovies = movieData.map(movie => {
+    console.log(movie)
     return (
       <MovieResults
         saveFavorite = {saveFavorite} 
@@ -16,12 +17,13 @@ const ReturnedMovies = ({movieData, saveFavorite}) => {
         overview = {movie.overview}
         score = {movie.vote_average}
         reviews = {movie.vote_count}
+        poster = {movie.poster_path}
         />)
   })
 
   return(
     <div id= "resultsContainer">
-    {returnedMovies}
+      {returnedMovies}
     </div>
   )
 }

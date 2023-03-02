@@ -1,30 +1,67 @@
 body{
   font-family: 'Courier New', Courier, monospace;
+  background-color: aliceblue;
+  padding: 4vh
+
+}
+button{
+  height: 4vh;
+  width: 15vh;
+  margin-top: 10px;
+  border-radius: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  border: none;
 }
 
 #resultsContainer{
   max-height: 50vh;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr) );
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr) );
   gap: 10px;
   padding: 10px 0px;
-  overflow: scroll;
+  overflow: auto;
   background-color: aliceblue;
+  margin-bottom: 2vh;
   
 }
+
+.header{
+  border-top: 3px solid rgb(226, 236, 243);
+  padding: 2vh 0px;
+
+}
+
+#favContainer
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr) );
+  gap: 10px;
+  padding: 10px 0px;
+  
+}
+
+.favContent{
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.favTxt{
+  div{
+    margin-bottom: 10px;
+  }
+}
+
 
 #resultsStyles{
   background: #7FFFD4;
   font-family: 'Courier New', Courier, monospace;
-  padding: 5px;
+  padding: 5px 5px 5px 5px;
   margin-bottom: 5px; 
-
   button{
     background-color: white;
-    height: 5vh;
-    width: 10vh;
-    margin-top: 10px;
-    border-radius: 3px;
+    border: none;
+
   }
 }
 
@@ -33,13 +70,12 @@ body{
   font-family: 'Courier New', Courier, monospace;
   padding: 5px;
   margin-bottom: 5px; 
+  display: flex;
+  flex-direction: row;
 
-  button{
-    background-color: white;
-    height: 5vh;
-    width: 10vh;
-    margin-top: 10px;
-    border-radius: 3px;
+  img{
+    width: 15vh;
+    margin-right: 20px;
   }
 }
 
@@ -48,11 +84,16 @@ body{
   margin-bottom: 10px; 
 }
 
+
+
 #search button{
   background-color: #7FFFD4;
-  height: 20px;
-  margin-left: 10px;
-  border-radius: 3px;
-  border: none
+  border: none;
 }
 
+input{
+  height: 3vh;
+  width: 25vh;
+  font-family: 'Courier New', Courier, monospace;
+  margin-right: 10px;
+}

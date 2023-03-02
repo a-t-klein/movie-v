@@ -5,7 +5,7 @@ const FavoriteContainer = ({favoriteMovies, deleteFavorite}) => {
 
   console.log('in favContainer')
   const favMovies = favoriteMovies.map(movie => {
-    console.log('eachMovie', movie.title)
+    console.log('eachMovie', movie)
     return (
       <FavoriteMovie
       deleteFavorite ={deleteFavorite}
@@ -15,21 +15,18 @@ const FavoriteContainer = ({favoriteMovies, deleteFavorite}) => {
       date = {movie.date}
       overview = {movie.overview}
       score = {movie.score}
+      poster = {movie.poster}
     />
     )
   })
 
-  useEffect(() => {
-    console.log('inside favContainer',favMovies)
-    
-  })
-
-  console.log('favMovies in FavoriteContainer',favoriteMovies)
-
   return (
     <>
-      <div>saved movies:</div>
+      <div className="header">saved movies:</div>
+      <div id="favContainer">
       {favMovies}
+      </div>
+      
     </>
 
   )

@@ -1,18 +1,22 @@
 import React, {Component} from "react";
+import '../style.scss'
 
 //
 
-const FavoriteMovie = ({title, date, overview, score, id, deleteFavorite}) => {
+const FavoriteMovie = ({title, date, overview, score, id, deleteFavorite, poster}) => {
+  const posterSrc = `https://image.tmdb.org/t/p/w500/${poster}`
   return(
     <div id="favoritesStyles">
-      <div>{title}</div>
-      <div>{date}</div>
-      <div>{overview}</div>
-      <div>
-        <span>score: {score}</span>
-      </div>
-      <div>
+      <div className="favContent">
+        <img className = "favPoster" src = {posterSrc} ></img>
         <button onClick={()=> deleteFavorite(id)}>delete</button>
+      </div>
+
+      <div className="favTxt">
+        <div>{title}</div>
+        <div>{date}</div>
+        <div>{overview}</div>
+        <div>score: {score}</div>
       </div>
     </div>
   )
