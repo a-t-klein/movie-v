@@ -1,7 +1,7 @@
 {
   "name": "movies-z",
   "version": "1.0.0",
-  "description": "",
+  "description": "movie-z",
   "scripts": {
     "start": "NODE_ENV=production node server/server.js --open",
     "build": "webpack",

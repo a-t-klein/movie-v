@@ -26,6 +26,10 @@ app.delete('/allfavorite',favoriteController.deleteAllFavorite, (req, res) => {
   res.status(200).send(res.locals.favorite)
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../build/index.html'));
+});
+
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',

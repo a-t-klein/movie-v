@@ -1,9 +1,10 @@
 import MovieResults from "../components/MovieResults";
-import React, {Component, useState} from "react";
+import React, {Component, useEffect, useState} from "react";
 import '../style.scss'
 
 
-const ReturnedMovies = ({movieData, saveFavorite}) => {
+const ReturnedMovies = ({movieData, saveFavorite, searchVal}) => {
+  useEffect(()=>{console.log('testtesttest')},[searchVal])
 
   const returnedMovies = movieData.map(movie => {
     console.log(movie)

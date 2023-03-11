@@ -1,132 +1,123 @@
-body{
-  font-family: 'Courier New', Courier, monospace;
+body {
+  font-family: "Courier New", Courier, monospace;
   background-color: aliceblue;
   padding: 4vh;
-  color: rgb(45, 46, 53);
+  color: rgb(46, 47, 53);
 }
 
-button{
+button {
   height: 4vh;
   width: 15vh;
   margin-top: 10px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   border: none;
 }
 
 button:hover,
 button:focus {
-  box-shadow: 0 .6px 3px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 0.6px 3px 0 rgba(0, 0, 0, 0.19);
 }
 
-
-#resultsContainer{
+#resultsContainer {
   max-height: 50vh;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr) );
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 10px;
   padding: 10px 0px;
   overflow: auto;
   background-color: aliceblue;
   margin-bottom: 2vh;
-  
 }
 
-.header{
+.header {
   border-top: 3px solid rgb(226, 236, 243);
   padding: 2vh 0px;
-
 }
 
-#favContainer{
+#favContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr) );
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 10px;
   padding: 10px 0px;
-  
 }
 
-.favContent{
+.favContent {
   padding-right: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.favTxt{
-  div{
+.favTxt {
+  div {
     margin-bottom: 10px;
   }
 }
 
-#resultsStyles{
-  background: #7FFFD4;
-  font-family: 'Courier New', Courier, monospace;
+#resultsStyles {
+  background: #7fffd4;
+  font-family: "Courier New", Courier, monospace;
   padding: 15px;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   display: flex;
-  button{
+  button {
     background-color: white;
     border: none;
   }
-  img{
+  img {
     width: 15vh;
     margin-right: 20px;
   }
-  div{
+  div {
     margin-bottom: 10px;
   }
 }
 
-
-
-#resultContent{
+#resultContent {
   padding-right: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-#favoritesStyles{
+#favoritesStyles {
   background: #ae86de;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   padding: 15px;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   display: flex;
   flex-direction: row;
 
-  img{
+  img {
     width: 15vh;
     margin-right: 20px;
   }
 }
 
-#search{
+#search {
   margin-bottom: 10px;
 }
 
-#search button{
-  background-color: #7FFFD4;
+#search button {
+  background-color: #7fffd4;
   border: none;
 }
 
-input{
+input {
   height: 3vh;
   width: 25vh;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   margin-right: 10px;
 }
 
-#movieTicker{
+#movieTicker {
   position: fixed;
-  top:0;
-  left:0;
-  right:0;
+  top: 0;
+  left: 0;
+  right: 0;
   align-items: center;
-  box-shadow: 0 .6px 3px 0 rgba(0, 0, 0, 0.19);
-  
+  box-shadow: 0 0.6px 3px 0 rgba(0, 0, 0, 0.19);
 
-
-
-  #title{
+  #title {
     position: absolute;
     background-color: rgb(255, 240, 192);
     height: 100%;
@@ -135,7 +126,7 @@ input{
     padding: 0 5vh;
     z-index: 300;
   }
-  ul{
+  ul {
     display: flex;
     list-style-type: none;
     margin: 0;
@@ -152,28 +143,23 @@ input{
     justify-content: center;
     padding: 0vh 5vh;
     background-color: aliceblue;
-
-    
   }
 
   @keyframes scroll {
     from {
       transform: translateX(100%);
     }
-    to{
+    to {
       transform: translateX(-5200px);
     }
   }
 
-  #cover{
+  #cover {
     position: fixed;
     background-color: rgb(255, 240, 192);
     height: 100%;
     z-index: 100;
-
   }
-
-
 }
 
 // #main{
